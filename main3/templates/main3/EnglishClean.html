@@ -1,0 +1,204 @@
+{% extends 'main3/base.html' %}
+{% block content2 %}
+<form method="POST" class="fromEng" id="formEng">
+  {% csrf_token %}
+  <table class="center1">
+    <tr>
+      <th>Le text a traiter</th>
+    </tr>
+    <td id="textarea"><textarea class="center textarea1Eng" placeholder="Insert Your Text" name="text" required dir="ltr" id="inputTextarea" class="hidden">{{textini}}</textarea><label id="clearButton">
+        <ion-icon name="close-outline" title="Clear"></ion-icon>
+      </label></td>
+    </tr>
+    <tr>
+      <th>Le text après traitement</th>
+    </tr>
+    </tr>
+    <tr>
+      <td id="textarea" style="position: relative;"><textarea class="center textarea2Eng" placeholder="Here is your cleaned text" readonly dir="ltr" id="outputTextarea">
+        {{ string }}</textarea><label id="copyButton">
+          <ion-icon name="copy-outline"><span id="copyMessage"></span></ion-icon>
+        </label>
+        <svg version="1.1" id="preloader" x="0px" y="0px" width="240px" height="120px" viewBox="0 0 240 120">
+
+          <style type="text/css" >
+            <![CDATA[
+          
+              #plug,
+              #socket { fill:#1197cc }
+          
+              #loop-normal { fill: none; stroke: #1197cc; stroke-width: 12 }
+              #loop-offset { display: none }
+          
+            ]]>
+          </style>
+          
+          <path id="loop-normal" class="st1" d="M120.5,60.5L146.48,87.02c14.64,14.64,38.39,14.65,53.03,0s14.64-38.39,0-53.03s-38.39-14.65-53.03,0L120.5,60.5
+          L94.52,87.02c-14.64,14.64-38.39,14.64-53.03,0c-14.64-14.64-14.64-38.39,0-53.03c14.65-14.64,38.39-14.65,53.03,0z">
+            <animate attributeName="stroke-dasharray" attributeType="XML"
+                from="500, 50"  to="450 50"
+                begin="0s" dur="2s"
+                repeatCount="indefinite"/>
+            <animate attributeName="stroke-dashoffset" attributeType="XML"
+                from="-40"  to="-540"
+                begin="0s" dur="2s"
+                repeatCount="indefinite"/>  
+          </path>
+            
+          <path id="loop-offset" d="M146.48,87.02c14.64,14.64,38.39,14.65,53.03,0s14.64-38.39,0-53.03s-38.39-14.65-53.03,0L120.5,60.5
+          L94.52,87.02c-14.64,14.64-38.39,14.64-53.03,0c-14.64-14.64-14.64-38.39,0-53.03c14.65-14.64,38.39-14.65,53.03,0L120.5,60.5
+          L146.48,87.02z"/>
+            
+          <path id="socket" d="M7.5,0c0,8.28-6.72,15-15,15l0-30C0.78-15,7.5-8.28,7.5,0z"/>  
+            
+          <path id="plug" d="M0,9l15,0l0-5H0v-8.5l15,0l0-5H0V-15c-8.29,0-15,6.71-15,15c0,8.28,6.71,15,15,15V9z"/>
+            
+          <animateMotion
+            xlink:href="#plug"
+              dur="2s"
+            rotate="auto"
+            repeatCount="indefinite"
+            calcMode="linear"
+            keyTimes="0;1"    
+            keySplines="0.42, 0, 0.58, 1">
+            <mpath xlink:href="#loop-normal"/>
+          </animateMotion>
+            
+          <animateMotion             
+            xlink:href="#socket"
+              dur="2s"
+            rotate="auto"
+            repeatCount="indefinite"
+            calcMode="linear"
+            keyTimes="0;1"
+            keySplines="0.42, 0, 0.58, 1">
+            <mpath xlink:href="#loop-offset"/>
+          </animateMotion>  
+          </svg>
+      </td>
+    </tr>
+  </table>
+
+
+
+  <table class="center">
+    <tr>
+      <td>
+        <label>
+          <span class="title">Supprimer les urls</span>
+          <span class="action">
+            <input type="checkbox" name="option" value="f1">
+            <i></i>
+          </span>
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label>
+          <span class="title">Supprimer une suite de numéros </span>
+          <span class="action">
+            <input type="checkbox" name="option" value="f2">
+            <i></i>
+          </span>
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label>
+          <span class="title">Supprimer les espaces blancs</span>
+          <span class="action">
+            <input type="checkbox" name="option" value="f3">
+            <i></i>
+          </span>
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label>
+          <span class="title">Supprimer les formats emails </span>
+          <span class="action">
+            <input type="checkbox" name="option" value="f4">
+            <i></i>
+          </span>
+        </label>
+
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label>
+          <span class="title">Supprimer les caractères spéciaux (@#$%)</span>
+          <span class="action">
+            <input type="checkbox" name="option" value="f5">
+            <i></i>
+          </span>
+        </label>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <label>
+          <span class="title">Supprimer les Stop Words</span>
+          <span class="action">
+            <input type="checkbox" name="option" value="f6">
+            <i></i>
+          </span>
+
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label>
+          <span class="title">Supprimer les mots non anglais </span>
+          <span class="action">
+            <input type="checkbox" name="option" value="f7">
+            <i></i>
+          </span>
+        </label>
+      </td>
+    </tr>
+    <!-- <tr>
+      <td>
+        <label>
+          <span class="title">Appliquer le stemming sur votre texte</span>
+          <span class="action">
+            <input type="radio" id="Rad2" name="option" value="f8">
+            <i></i>
+          </span>
+        </label>
+      </td>
+    </tr> -->
+    <tr>
+      <td>
+        <label>
+          <span class="title"> Lemmatiser votre texte</span>
+          <span class="action">
+            <input type="checkbox" id="Rad2" name="option" value="f9">
+            <i></i>
+          </span>
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label>
+          <span class="title"> Tokenizer avec un espace blanc </span>
+          <span class="action">
+            <!-- kant button radio -->
+            <input type="checkbox" id="Rad1" name="option" value="f10">
+            <i></i>
+          </span>
+
+        </label>
+      </td>
+    </tr>
+  </table>
+
+  <center><button type="submit" value="submit" class="btn1" id="submitter"> <span>CLEAN TEXT</span> </button></center>
+</form>
+{% endblock %}

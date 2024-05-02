@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{%static 'css/base.css'%}">
+  <title>Document</title>
+</head>
+<body>
+    <h2><a href="{% url 'MainPage' %}">Home</a> > Register</h2>
+
+<form action="" method="POST">
+  {% csrf_token%} 
+    <h3>Register</h3>
+  <label for="username">Username</label>
+   {{form.username}}
+   {% if form.errors %}
+   <ul class="error">
+   {% for field, errors in form.errors.items %}
+       {% for error in errors %}
+           {% if field == 'username' %}
+               <li class="username error">{{ error }}</li>
+           {% endif %}
+       {% endfor %}
+   {% endfor %}
+   </ul>
+{% endif %}
+  <!-- <input type="text" name="email" id="email" required> -->
+  <label for="email">Email</label>
+  {{form.email}}
+  {% if form.errors %}
+  <ul class="error">
+  {% for field, errors in form.errors.items %}
+      {% for error in errors %}
+          {% if field == 'email' %}
+              <li class="email error">{{ error }}</li>
+          {% endif %}
+      {% endfor %}
+  {% endfor %}
+  </ul>
+{% endif %}
+  <label for="password">Password</label>
+  {{form.password1}}
+  {% if form.errors %}
+    <ul class="error">
+    {% for field, errors in form.errors.items %}
+        {% for error in errors %}
+
+            {% if field == 'password1' %}
+                <li class="password1 error">{{ error }}</li>
+
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+    </ul>
+{% endif %}
+  <label for="password">Confirm your password</label>
+  {{form.password2}}
+  {% if form.errors %}
+<ul class="error">
+{% for field, errors in form.errors.items %}
+    {% for error in errors %}
+        {% if field == 'password2' %}
+            <li class="password2 error">{{ error }}</li>
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+</ul>
+{% endif %}
+  <button style="cursor: pointer;">Create User</button>
+  <br><br>
+  <br>
+  <p>Alread have an account ?<a href="/login/" style="color:blue;">Login</a></p>
+
+
+
+  
+</form>
+
+</body>
+</html>

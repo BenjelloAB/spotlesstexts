@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+   <html>
+      <style >
+         textarea{
+         height:50px;
+         width: 50%;
+         }
+         .center1 {
+         margin-left: auto;
+         margin-right: auto;
+         width:80%;
+         border-collapse: collapse;
+         text-align:center;
+         }
+         .center {
+         margin-left: auto;
+         margin-right: auto;
+         width:80%;
+         }
+      </style>
+      <body>
+       <form action="#" method="POST">
+           {% csrf_token %}
+           <table class ="center1">
+               <tr>
+                  <th>Le text a traiter</th>
+               </tr>
+               <td><textarea class="center" placeholder="دخل النص ديالك" name="text" required dir="rtl" lang="ar">{{textini}}</textarea></td>
+               </tr>
+               <tr>
+                  <th>Le text après traitement</th>
+               </tr>
+               </tr>
+               <tr>
+                  <td><textarea  class="center" placeholder="ها النص منقي" readonly dir="rtl" lang="ar">{{ string }}</textarea></td>
+               </tr>
+            </table>
+            <table class ="center">
+               <tr>
+                  <!-- <td><input type="checkbox" name="option[]" value="f1">la normalisation </td> -->
+               </tr>
+               <tr>
+                  <td><input type="checkbox"  name="option[]" value="f2">Supprimer les diacritics </td>
+               </tr>
+               <tr>
+                  <td><input type="checkbox"  name="option[]" value="f3">Supprimer les urls </td>
+               </tr>
+               <tr>
+                  <td><input type="checkbox"  name="option[]" value="f4">Supprimer les numéros </td>
+               </tr>
+               <tr>
+                  <td><input type="checkbox"  name="option[]" value="f5">Supprimer les espaces blancs </td>
+               </tr>
+               <tr>
+                  <td><input type="checkbox"  name="option[]" value="f7">Supprimer les symboles non arabe(suprime juste un singleton sans suprimmer le mot 
+                  </td>
+               </tr>
+               <tr>
+                  <td><input type="checkbox"  name="option[]" value="f6">Supprimer les mots non arabe (avec suppression du mots ) </td>
+               </tr>
+               <tr>
+                  <td><input type="checkbox"  name="option[]" value="f8">Supprimer les caractères spéciaux </td>
+               </tr>
+               <tr>
+                  <td><input type="checkbox"  name="option[]" value="f9">Supprimer les format email </td>
+               </tr>
+               <tr>
+                  <td><input type="checkbox"  name="option[]" value="f10">stop words selon une liste donner</td>
+               </tr>
+               <tr>
+                  <td><input type="radio"  name="option[]" value="f11">tokenizer avec un espace blanc </td>
+               </tr>
+               <tr>
+                  <td><input type="radio"  name="option[]" value="f12">tokenizer avec un caractère spécial </td>
+               </tr>
+            </table>
+
+            <center><button type="submit" value="submit">SAVE</button></center>
+       </form>
+         
+      </body>
+   </html>

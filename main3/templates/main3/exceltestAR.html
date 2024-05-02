@@ -1,0 +1,166 @@
+{% extends 'main3/base.html'%}
+
+{% block content2%}
+<form action="/excelTest_AR/" method="POST" enctype="multipart/form-data" class="form1" id="formExcel">
+  {% csrf_token %}
+  <div>
+    <label for="up" id="lab1">
+        
+     <span> 
+        <i style="position: relative;
+        right: 6px;
+        top: 3px;"><ion-icon name="duplicate" style="font-size: 61px;"></ion-icon></i>
+           <!-- <p>Upload: &nbsp;&nbsp;&nbsp;</p>  -->
+           <br>
+        <span id="cutosm_text">No file chosen yet!</span>
+    </span>
+       
+ 
+    </label>
+    <input type="file" name="myfile" id="up">
+  </div>
+  <br><br>
+  <table class="center">
+    <!-- <tr>
+        <td>
+          <label>
+            <span class="title">normaliser le texte</span>
+            <span class="action">
+              <input type="checkbox" name="option[]" value="f1">
+              <i></i>
+            </span>
+          </label>
+        </td>
+      </tr> -->
+    <tr>
+      <td>
+        <label>
+          <span class="title">Supprimer les diacritiques</span>
+          <span class="action">
+            <input type="checkbox" name="option[]" value="f2">
+            <i></i>
+          </span>
+        </label>
+      </td>
+    </tr>
+    <tr>
+        <td>
+          <label>
+            <span class="title">Supprimer les urls</span>
+            <span class="action">
+              <input type="checkbox" name="option[]" value="f3">
+              <i></i>
+            </span>
+          </label>
+        </td>
+      </tr>
+    <tr>
+      <td>
+        <label>
+          <span class="title">Supprimer une suite de numéros </span>
+          <span class="action">
+            <input type="checkbox" name="option[]" value="f4">
+            <i></i>
+          </span>
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label>
+          <span class="title">Supprimer les espaces blancs</span>
+          <span class="action">
+            <input type="checkbox" name="option[]" value="f5">
+            <i></i>
+          </span>
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label>
+          <span class="title">Supprimer les formats emails </span>
+          <span class="action">
+            <input type="checkbox" name="option[]" value="f6">
+            <i></i>
+          </span>
+        </label>
+
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <label>
+          <span class="title">Supprimer les caractères spéciaux (@#$%)</span>
+          <span class="action">
+            <input type="checkbox" name="option[]" value="f7">
+            <i></i>
+          </span>
+        </label>
+      </td>
+    </tr>
+   
+    <tr>
+      <td>
+        <label>
+          <span class="title">Supprimer les Stop Words</span>
+          <span class="action">
+            <input type="checkbox" name="option[]" value="f8">
+            <i></i>
+          </span>
+
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label>
+          <span class="title">Supprimer les mots non arabe </span>
+          <span class="action">
+            <input type="checkbox" name="option[]" value="f9">
+            <i></i>
+          </span>
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label>
+          <span class="title">Lemmatiser votre texte</span>
+          <span class="action">
+            <input type="checkbox" id="Rad2" name="option[]" value="f10">
+            <i></i>
+          </span>
+        </label>
+      </td>
+    </tr>
+    <!-- <tr>
+      <td>
+        <label>
+          <span class="title">Tokenizer avec un espace blanc </span>
+          <span class="action">
+       
+            <input type="checkbox" id="Rad1" name="option[]" value="f12">
+            <i></i>
+          </span>
+
+        </label>
+      </td>
+    </tr> -->
+    
+    <!-- <tr>
+      <td>
+        <label>
+          <span class="title">Appliquer le stemming sur votre texte</span>
+          <span class="action">
+            <input type="radio" id="Rad2" name="option[]" value="f11">
+            <i></i>
+          </span>
+        </label>
+      </td>
+    </tr> -->
+  </table>
+  <center><button type="submit" value="submit" class="btn3E"> <span>CLEAN FILE</span> </button></center>
+</form>
+{% endblock %}
